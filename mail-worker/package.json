@@ -2,12 +2,13 @@
 	"name": "mail-worker",
 	"version": "0.0.0",
 	"private": true,
-	"scripts": {
-		"dev": "wrangler dev --config wrangler-dev.toml",
-		"test": "wrangler deploy --config wrangler-test.toml",
-		"deploy": "wrangler deploy",
-		"start": "wrangler dev"
-	},
+  "scripts": {
+    "dev": "wrangler dev --config wrangler-dev.toml",
+    "test": "vitest run",
+    "deploy:test": "wrangler deploy --config wrangler-test.toml",
+    "deploy": "wrangler deploy",
+    "start": "wrangler dev"
+  },
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.7.5",
 		"vitest": "~3.0.7",
