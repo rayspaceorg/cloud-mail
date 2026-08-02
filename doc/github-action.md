@@ -1,6 +1,6 @@
 # 使用 GitHub Actions 部署到 Cloudflare
 
-本仓库的工作流会在 `main` 分支中的 `mail-worker/**` 或 `mail-vue/**` 发生变化时自动部署，也可以在 GitHub 的 **Actions → Deploy cloud-mail to Cloudflare → Run workflow** 手动触发。
+本仓库的工作流会在 `main` 分支发生变化时自动部署，也可以在 GitHub 的 **Actions → Deploy cloud-mail to Cloudflare → Run workflow** 手动触发。
 
 ## 工作流会自动完成什么
 

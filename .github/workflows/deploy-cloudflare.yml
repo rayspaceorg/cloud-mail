@@ -4,9 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "mail-worker/**"
-      - "mail-vue/**"
   workflow_dispatch:
 
 permissions:
