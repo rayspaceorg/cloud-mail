@@ -106,7 +106,7 @@ const config = {
 };
 
 if (customDomain) {
-  config.routes = [{ pattern: `${customDomain}/*`, zone_name: zoneName }];
+  config.routes = [{ pattern: customDomain, custom_domain: true }];
 }
 
 if (r2Enabled) {

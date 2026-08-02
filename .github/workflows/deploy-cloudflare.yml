@@ -200,11 +200,12 @@ jobs:
         run: |
           set -euo pipefail
 
-          if [[ -n "${CUSTOM_DOMAIN}" ]]; then
-            BASE_URL="https://${CUSTOM_DOMAIN}"
-          else
-            BASE_URL="${WORKER_URL}"
-          fi
+          PUBLIC_URL="${CUSTOM_DOMAIN:+https://${CUSTOM_DOMAIN}}"
+          PUBLIC_URL="${PUBLIC_URL:-${WORKER_URL}}"
+
+          # workers.dev normally becomes available before a newly provisioned
+          # custom-domain certificate, so prefer it for the one-time init call.
+          BASE_URL="${WORKER_URL:-${PUBLIC_URL}}"
 
           if [[ -z "$BASE_URL" ]]; then
             echo "Unable to determine the deployed Worker URL." >&2
@@ -223,7 +224,7 @@ jobs:
               {
                 echo "## Cloud Mail deployment"
                 echo
-                echo "- URL: $BASE_URL"
+                echo "- URL: $PUBLIC_URL"
                 echo "- Worker: $WORKER_NAME"
                 echo "- D1: ${{ steps.resources.outputs.d1_database_name }}"
                 echo "- KV: ${WORKER_NAME}-kv"

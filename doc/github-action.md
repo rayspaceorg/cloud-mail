@@ -46,7 +46,7 @@ openssl rand -base64 48 | tr -d '=+/\n' | cut -c1-48
 | `CLOUDFLARE_EMAIL` | 使用 Global Key 时 | `name@example.com` | Cloudflare 登录邮箱 |
 | `WORKER_NAME` | 否 | `cloud-mail` | 默认 `cloud-mail` |
 | `DOMAIN` | 是 | `["example.com"]` | 可收信域名 JSON 数组，也支持逗号分隔 |
-| `CUSTOM_DOMAIN` | 否 | `example.com` | Web 管理后台域名；留空则仅使用 workers.dev |
+| `CUSTOM_DOMAIN` | 否 | `mail.example.com` | Web 管理后台域名；将作为 Worker Custom Domain 自动管理 DNS 和证书 |
 | `ZONE_NAME` | 使用自定义域名时 | `example.com` | `CUSTOM_DOMAIN` 所属的 Cloudflare Zone |
 | `ADMIN` | 是 | `admin@example.com` | 初始管理员邮箱，域名必须包含在 `DOMAIN` 中 |
 | `R2_ENABLED` | 否 | `false` | 是否绑定 R2；未启用时附件回退到 KV |
